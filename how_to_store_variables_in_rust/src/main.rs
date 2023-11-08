@@ -79,7 +79,22 @@ fn main() {
     println!("");
     println!("Traits");
     user_defined::traits::run();
-    
+    println!("");
+    println!("Derived");
+    user_defined::derived::run();
+    println!("");
+    println!("Dyn");
+    user_defined::r#dyn::run();
+    println!("");
+    println!("Drop");
+    user_defined::drop::run();
+    println!("");
+    println!("Iterators");
+    user_defined::iterators::run();
+    println!("");
+    println!("Supertraits");
+    user_defined::supertraits::run();
+
     let array: [i64; 5] = [1, 2, 3, 4, 5];
     multiplier(&array);
 }
