@@ -76,6 +76,9 @@ fn main() {
     println!("");
     println!("Diverging functions");
     user_defined::diverging_functions::run();
+    println!("");
+    println!("Traits");
+    user_defined::traits::run();
     
     let array: [i64; 5] = [1, 2, 3, 4, 5];
     multiplier(&array);
