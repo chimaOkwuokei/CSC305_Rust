@@ -90,6 +90,10 @@ pub extern "C" fn _start() -> ! {
 
     write_position(framebuffer, 1, 3, "Blue is the colour", Colour::LightBlue, Colour::Black);
 
+    write_position(framebuffer, 8, 3, "Football is the game", Colour::LightGreen, Colour::Black);
+
+    write_position(framebuffer, 16, 3, "Football is the game", Colour::LightGreen, Colour::Black);
+
     write_position(framebuffer, 21, 3, "Football is the game", Colour::LightGreen, Colour::Black);
 
     write_position(

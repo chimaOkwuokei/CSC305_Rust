@@ -1,0 +1,1 @@
+C:\Users\Samsung\Desktop\rust\ rebirth\CSC305_Rust\kernel_with_bootloader\target\x86_64-unknown-none\debug\kernel_with_bootloader: C:\Users\Samsung\Desktop\rust\ rebirth\CSC305_Rust\kernel_with_bootloader\src\main.rs
