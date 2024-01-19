@@ -17,7 +17,7 @@ const LINE_SPACING: usize = 2;
 const LETTER_SPACING: usize = 0;
 
 /// Padding from the border. Prevent that font is too close to border.
-const BORDER_PADDING: usize = 1;
+const BORDER_PADDING: usize = 0;
 
 /// Returns the raster of the given char or the raster of [font_constants::BACKUP_CHAR].
 fn get_char_raster(c: char) -> RasterizedChar {
@@ -37,15 +37,24 @@ pub struct FrameBufferWriter {
 
 impl FrameBufferWriter {
     /// Creates a new logger that uses the given framebuffer.
-    pub fn new(framebuffer: &'static mut [u8], info: FrameBufferInfo) -> Self {
+    pub fn new(
+        framebuffer: &'static mut [u8],
+        info: FrameBufferInfo,
+    ) -> Self {
         let mut logger = Self {
             framebuffer,
             info,
-            x_pos: 0,
-            y_pos: 0,
+            x_pos : 0,
+            y_pos : 0,
         };
         logger.clear();
         logger
+    }
+ 
+    // /// Sets both x and y positions for writing on the screen.
+    pub fn set_position(&mut self, x_pos: usize, y_pos: usize) {
+        self.x_pos = x_pos;
+        self.y_pos = y_pos;
     }
 
     fn newline(&mut self) {
@@ -80,14 +89,19 @@ impl FrameBufferWriter {
             '\r' => self.carriage_return(),
             c => {
                 let new_xpos = self.x_pos + font_constants::CHAR_RASTER_WIDTH;
+
                 if new_xpos >= self.width() {
                     self.newline();
+                    
                 }
+
                 let new_ypos =
                     self.y_pos + font_constants::CHAR_RASTER_HEIGHT.val() + BORDER_PADDING;
+
                 if new_ypos >= self.height() {
                     self.clear();
                 }
+                
                 self.write_rendered_char(get_char_raster(c));
             }
         }

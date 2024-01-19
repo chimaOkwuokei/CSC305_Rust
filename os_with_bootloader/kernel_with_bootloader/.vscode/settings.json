@@ -1,3 +1,4 @@
 {
     "rust-analyzer.checkOnSave.allTargets": false
-} //i will so cry if this is what caused it
+} //i will so cry if this is what caused it. wow!
+  //prevents conflicts with the std
